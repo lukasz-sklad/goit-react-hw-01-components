@@ -1,112 +1,237 @@
-# React homework template
+# Kryteria zaliczenia
 
-Цей проект був створений за допомогою
-[Create React App](https://github.com/facebook/create-react-app). Для знайомства
-і налаштування додаткових можливостей
-[звернися до документації](https://facebook.github.io/create-react-app/docs/getting-started).
+Użyj tego
+[szablonu projektu React ](https://github.com/goitacademy/react-homework-template#readme) jako punktu wyjścia dla swojej aplikacji.
 
-## Створення репозиторію за шаблоном
+* Utworzone zostało repozytorium `goit-react-hw-01-components`.
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення репозиторію
-свого проєкта. Для цього натисни на кнопку `«Use this template»` і вибери опцію
-`«Create a new repository»`, як показано на зображенні.
+* Komponenty wszystkich zadań renderują się na jednej stronie, wewnątrz wspólnego kontenera – komponentu root `<App>`.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+*  W oddanym zadaniu domowym znajduje się odnośnik do repozytorium z kodem źródłowym projektu.
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни поле
-його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`«Create repository from template»`.
+*  W nagłówku repozytorium znajduje się odnośnik do rzeczywistej strony na `GitHub pages`.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+*  Po wejściu na stronę roboczą (GitHub pages) zadania, na konsoli nie ma błędów i ostrzeżeń.
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як
-показано на зображенні.
+*  Dla każdego komponentu istnieje oddzielny folder z plikiem komponentu React i plikiem stylów.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+* Dla wszystkich komponentów opisane są `propTypes`.
 
-Проскроливши сторінку до самого кінця, у секції `«Workflow permissions»` вибери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це
-необхідно для автоматизації процесу деплою проєкту.
+*  Wszystko, czego komponent żąda w postaci propsów przekazywane jest do niego przy wywołaniu.
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+* Nazwy komponentów są zrozumiałe, opisowe.
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів і папок
-репозиторію-шаблону. Далі працюй із ним як із будь-яким іншим особистим репозиторієм,
-клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй їх на
-GitHub.
+* Kod JS jest czysty i zrozumiały, wykorzystany został `Prettier`.
 
-## Підготовка до роботи
+* Stylizacja wykonana została `CSS-modułami` lub `Styled Components`, dlatego klasy w ostatecznym DOM będą różnić się od przykładów.
 
-1. Переконайся що на комп'ютері встановлено LTS-версія Node.js.
-   [Завантаж і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проєкту командою `npm install`.
-3. Запусти режим розробки, виконавши команду `npm start`.
-4. Перейди в браузері за адресою [http://localhost:3000](http://localhost:3000).
-   Ця сторінка буде автоматично перезавантажуватися після збереження змін у файлах проєкту.
+*  Wystarczy bazowa stylizacja aplikacji. Powinna przede wszystkim działać, a dopiero później ładnie wyglądać. Przeznacz 20% czasu na CSS i 80% na JS.
 
-## Деплой
 
-Продакшн версія проєкту буде автоматично проходити лінтинг, збиратися і
-деплоїтися на GitHub Pages, у гілку `gh-pages`, щоразу, коли оновлюється
-гілка `main`. Наприклад, після прямого пушу або прийнятого пул-реквесту. Для цього
-необхідно у файлі `package.json` відредагувати поле `homepage`, замінивши
-`your_username` і `your_repo_name` на свої, і відправити зміни на GitHub.
+## 1 - Profil w sieci społecznościowej
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
+Należy utworzyć komponent `<Profile>`, przy pomocy którego można wyświetlać informację o użytkowniku sieci społecznościowej. Informacje o użytkowniku znajdują się w pliku 
+[user.json](https://downgit.evecalm.com/#/home?url=https://github.com/goitacademy/react-homework/blob/master/homework-01/social-profile/user.json).
+
+![](https://textbook.edu.goit.global/lms-react-homework/v1/pl/img/hw-01/social-profile.png)
+
+## Opis komponentu `<Profile>`
+
+Komponent powinien przyjmować kilka propsów z informacjami o użytkowniku:
+
+* `username` — nazwa użytkownika
+* `tag` — tag w sieci społecznościowej `@`
+* `location` — miasto i państwo
+* `avatar` — odnośnik do awataru
+* `stats` — obiekt z informacjami o aktywności
+
+Komponent powinien tworzyć element DOM o następującej strukturze:
+
+```
+<div class="profile">
+  <div class="description">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
+      alt="User avatar"
+      class="avatar"
+    />
+    <p class="name">Petra Marica</p>
+    <p class="tag">@pmarica</p>
+    <p class="location">Salvador, Brasil</p>
+  </div>
+
+  <ul class="stats">
+    <li>
+      <span class="label">Followers</span>
+      <span class="quantity">1000</span>
+    </li>
+    <li>
+      <span class="label">Views</span>
+      <span class="quantity">2000</span>
+    </li>
+    <li>
+      <span class="label">Likes</span>
+      <span class="quantity">3000</span>
+    </li>
+  </ul>
+</div>
 ```
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн-версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
-
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, сборки або деплою сталася помилка.
-
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і
-у вікні, що випадає, перейти за посиланням `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Жива сторінка
-
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися
-за адресою, вказаною у відредагованій властивості `homepage`. Наприклад, ось
-посилання на живу версію для цього репозиторію
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Якщо відкривається порожня сторінка, переконайся, що у вкладці `Console` немає помилок
-пов'язаних із неправильними шляхами до CSS і JS файлів проєкту (**404**). Швидше 
-за все у тебе неправильне значення властивості `homepage` у файлі `package.json`.
-
-### Маршрутизація
-
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши у пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
+### Przykład wykorzystania
 
 ```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
+import user from 'path/to/user.json;
+
+<Profile
+  username={user.username}
+  tag={user.tag}
+  location={user.location}
+  avatar={user.avatar}
+  stats={user.stats}
+/>
 ```
 
-## Як це працює
+## 2- Sekcja "statystyki"
 
-![How it works](./assets/how-it-works.png)
+Utwórz komponent `<Statistics>`, który wyświetlałby statystyki zgodnie z przekazanymi propsami, na przykład: ładowanie w chmurze zgodnie z rodzajem pliku, odwiedziny strony internetowej przez użytkowników z różnych państw, nakłady finansowe i tym podobne. Informacje o statystykach znajdują się w pliku [data.json](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/goitacademy/react-homework/blob/master/homework-01/statistics/data.json).
 
-1. Після кожного пушу в гілку `main` GitHub-репозиторія, запускається спеціальний
-   скрипт (GitHub Action) з файла `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується і
-   проходить лінтинг і збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн-версія файлів проєкту
-   відправляється в гілку `gh-pages`. В іншому випадку, в лозі виконання
-   скрипта буде вказано в чому проблема.
+![](https://textbook.edu.goit.global/lms-react-homework/v1/pl/img/hw-01/statistics.jpg).
+
+### Opis komponentu `<Statistics>`
+
+Komponent powinien przyjmować dwa propsy `title` i `stats`, w których wyświetla się nagłówek i obiekt statystyk.
+
+* `title` - nie jest obowiązkowy i jeśli nie został przekazany, widok nagłówka nie powinien się renderować `<h2>`.
+* `stats` - tablica obiektów zawierających informacje o elemencie statystyki. Może mieć dowolną ilość elementów.
+*  Kolor tła elementu statystyki można pominąć albo stworzyć funkcję do generowania losowego koloru.
+
+Komponent powinien tworzyć element DOM o następującej strukturze:
+
+```jsx
+<section class="statistics">
+  <h2 class="title">Upload stats</h2>
+
+  <ul class="stat-list">
+    <li class="item">
+      <span class="label">.docx</span>
+      <span class="percentage">4%</span>
+    </li>
+    <li class="item">
+      <span class="label">.mp3</span>
+      <span class="percentage">14%</span>
+    </li>
+    <li class="item">
+      <span class="label">.pdf</span>
+      <span class="percentage">41%</span>
+    </li>
+    <li class="item">
+      <span class="label">.mp4</span>
+      <span class="percentage">12%</span>
+    </li>
+  </ul>
+</section>
+```
+
+## Przykład wykorzystania
+
+```jsx
+import data from '/path/to/data.json';
+
+<Statistics title="Upload stats" stats={data} />
+<Statistics stats={data} />
+```
+
+## 3 - Lista znajomych
+
+Należy utworzyć komponent `<FriendList>`, przy pomocy którego moglibyśmy wyświetlać informacje o znajomych użytkownika. Dane dotyczące znajomych znajdują się w pliku [friends.json](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/goitacademy/react-homework/blob/master/homework-01/friend-list/friends.json).
+
+![](https://textbook.edu.goit.global/lms-react-homework/v1/pl/img/hw-01/friend-list.jpg)
+
+### Opis komponentu `<FriendList>`
+
+Komponent powinien przyjmować jeden props `friends` – tablicę obiektów przyjaciół.
+
+Komponent powinien tworzyć DOM o następującej strukturze:
+
+```html
+<ul class="friend-list">
+  <!-- Dowolna ilość FriendListItem -->
+</ul>
+```
+
+### Opis komponentu `<FriendListItem>`
+Komponent powinien przyjmować kilka propsów:
+
+* `avatar` - odnośnika do awataru
+* `name` - imię znajomego
+* `isOnline` - wartość boolowska informująca o statusie – czy jest w sieci.
+
+W zależności od propsu `isOnline`, powinien zmieniać się kolor tła `span.status`. Można to zrobić poprzez różne klasy CSS lub Styled Components.
+
+Komponent powinien tworzyć DOM o następującej strukturze:
+
+```html
+<li class="item">
+  <span class="status"></span>
+  <img class="avatar" src="" alt="User avatar" width="48" />
+  <p class="name"></p>
+</li>
+```
+
+### Przykład wykorzystania
+
+```jsx
+import friends from 'path/to/friends.json';
+
+<FriendList friends={friends} />;
+```
+
+## 4 - Historia transakcji
+
+Należy utworzyć komponent historii transakcji na koncie w banku internetowym.
+
+![](https://textbook.edu.goit.global/lms-react-homework/v1/pl/img/hw-01/transactions.jpg)
+
+Dane do listy są dostępne w formacie JSON w pliku [transactions.json](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/goitacademy/react-homework/blob/master/homework-01/transaction-history/transactions.json). To tablica obiektów, na której każdy obiekt opisuje jedną transakcję z następującymi właściwościami:
+
+* `id` — unikalny identyfikator transakcji
+* `type` — typ transakcji
+* `amount` - kwota transakcji
+* `currency` - rodzaj waluty
+
+### Opis komponentu `<TransactionHistory>`
+
+Należy stworzyć komponent `<TransactionHistory>` przyjmujący jeden props `items` – tablicę obiektów transakcji z transactions.json. Komponent tworzy układ tablicy. Każda transakcja to łańcuch tablicy. W przykładzie pokazany został układ dwóch transakcji:
+
+```html
+<table class="transaction-history">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Currency</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Invoice</td>
+      <td>125</td>
+      <td>USD</td>
+    </tr>
+    <tr>
+      <td>Withdrawal</td>
+      <td>85</td>
+      <td>USD</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Przykład wykorzystania
+
+```jsx
+import transactions from 'path/to/transactions.json';
+
+<TransactionHistory items={transactions} />;
+```
